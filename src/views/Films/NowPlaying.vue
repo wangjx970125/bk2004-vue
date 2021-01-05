@@ -37,6 +37,8 @@
     </div>
 </template>
 
+
+
 <script>
 // 导入加载文案
 import Vue from 'vue';
@@ -105,7 +107,7 @@ export default {
     border-radius: 8px;
     margin-top:-5px ;
     }
-    img{
+    .van-card__thumb img[data-v-5c89891c]{
         border-radius: 0;
     }
     .title{
