@@ -3,7 +3,13 @@
     <!-- 测试 vant 组件的使用 -->
     <!-- <van-cell title="选择单个日期" :value="date" @click="show = true" />
     <van-calendar v-model="show" @confirm="onConfirm" /> -->
-    <Footer />
+    
+    <!-- 可以让视图内容发送变化 内容一旦变化组件会重新渲染-->
+    <!-- <Footer v-show="$store.state.global.isshowFooter"></Footer> -->
+
+    <!-- 通过计算属性 -->
+    <Footer v-show="isshow"></Footer>
+
     <router-view/>
   </div>
 </template>
@@ -20,9 +26,14 @@ import Footer from '@/components/Navigation/Footer'
 // 导入 uri 地址模块
 // import uri from '@/config/uri'
 export default {
-  //注册组件
+  //注册组件 
   components:{
     Footer
+  },
+  data() {
+    return {
+      // isshow:true
+    }
   },
 
   // vant 测试代码
@@ -46,6 +57,16 @@ export default {
   created() {
     // 测试网络请求是否可用
     // this.$http.get(uri.getCities).then(ret => console.log(ret))
+
+    // 开始监听show_jiojio事件
+    // this.$eventBus.$on('show_jiojio',(flag)=>{
+    //   this.isshow = flag
+    // })
+  },
+  computed:{
+    isshow(){
+      return this.$store.state.global.isshowFooter
+    }
   },
 }
 </script>
